@@ -6,10 +6,10 @@ const app = express();
 const port = 8008;
 
 app.use(express.json());
-app.use(cors({ origin: ["*", null] }));
+app.use(cors({ origin: "*"}));
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', ["*", null]);
+    res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
@@ -32,7 +32,6 @@ app.post("/", (req, res) => {
             console.error('Error connecting to MySQL database: ' + err.stack);
             resObject.error = "Error connecting to the database" + err.stack;
             res.status(499).json(resObject);
-            res.send(JSON.stringify(resObject));
             return;
         }
         console.log('Connected to MySQL database with connection id ' + connection.threadId);
