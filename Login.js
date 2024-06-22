@@ -6,10 +6,10 @@ const app = express();
 const port = 8008;
 
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: ["*", null] }));
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', ["*", null]);
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
