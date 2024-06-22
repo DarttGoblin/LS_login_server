@@ -31,7 +31,7 @@ app.post("/", (req, res) => {
         if (err) {
             console.error('Error connecting to MySQL database: ' + err.stack);
             resObject.error = "Error connecting to the database";
-            res.status(500).json(resObject);
+            res.status(499).json(resObject);
             return;
         }
         console.log('Connected to MySQL database with connection id ' + connection.threadId);
